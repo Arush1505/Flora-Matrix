@@ -1,0 +1,326 @@
+[
+  {
+    "disease": "Cassava__bacterial_blight",
+    "display_name": "Cassava Bacterial Blight",
+    "crop": "Cassava",
+    "symptoms": "Angular water-soaked leaf spots that turn brown, wilting of leaves, gum exudation from stems, dieback of shoots.",
+    "treatment": "Remove and destroy infected plant parts. Apply copper-based bactericides (copper hydroxide 2g/L). Use clean planting material from certified sources.",
+    "prevention": "Use resistant varieties (TME 419, IITA varieties). Practice crop rotation with non-host crops. Avoid working in fields when foliage is wet.",
+    "organic_options": "Neem oil spray (5ml/L), compost tea applications to boost plant immunity, biological control agents like Bacillus subtilis."
+  },
+  {
+    "disease": "Cassava__brown_streak_disease",
+    "display_name": "Cassava Brown Streak Disease",
+    "crop": "Cassava",
+    "symptoms": "Yellow chlorotic patches on mature leaves, brown streaks on green stems, root necrosis with brown dry rot inside tuberous roots.",
+    "treatment": "No curative treatment available. Remove and burn all infected plants immediately. Replant with virus-free certified cuttings.",
+    "prevention": "Use CBSD-tolerant varieties. Control whitefly vectors (Bemisia tabaci) with yellow sticky traps. Source clean planting material.",
+    "organic_options": "Neem-based insecticides for whitefly control. Intercrop with repellent plants like marigold. Maintain field hygiene."
+  },
+  {
+    "disease": "Cassava__green_mottle",
+    "display_name": "Cassava Green Mottle",
+    "crop": "Cassava",
+    "symptoms": "Green mottling pattern on leaves, mild leaf distortion, mosaic-like patterns with varying shades of green.",
+    "treatment": "Remove symptomatic plants to reduce inoculum source. Use healthy stem cuttings for new plantings.",
+    "prevention": "Use virus-free planting material. Control insect vectors. Practice field sanitation.",
+    "organic_options": "Maintain healthy soil with organic compost. Encourage beneficial insects that prey on aphid and whitefly vectors."
+  },
+  {
+    "disease": "Cassava__healthy",
+    "display_name": "Cassava — Healthy",
+    "crop": "Cassava",
+    "symptoms": "No disease symptoms detected. Leaves are uniformly green with normal shape and size.",
+    "treatment": "No treatment necessary. Continue regular crop management practices.",
+    "prevention": "Maintain good agricultural practices: balanced fertilization, proper spacing, regular weed control, and crop monitoring.",
+    "organic_options": "Continue organic mulching, compost applications, and companion planting to maintain plant health."
+  },
+  {
+    "disease": "Cassava__mosaic_disease",
+    "display_name": "Cassava Mosaic Disease",
+    "crop": "Cassava",
+    "symptoms": "Chlorotic yellow/white mosaic pattern on leaves, leaf curling and distortion, reduced leaf size, stunted growth.",
+    "treatment": "Rogue out infected plants immediately. No chemical cure exists. Replace with CMD-resistant varieties.",
+    "prevention": "Plant resistant varieties (TME 3, TMS 30572). Control Bemisia tabaci whitefly vectors. Use certified virus-free cuttings.",
+    "organic_options": "Whitefly control using neem oil, yellow sticky traps, and biological agents like Encarsia formosa parasitoid wasp."
+  },
+  {
+    "disease": "Corn__common_rust",
+    "display_name": "Corn Common Rust",
+    "crop": "Corn",
+    "symptoms": "Small, round to elongated brown-red pustules (uredinia) on both leaf surfaces, scattered across the leaf blade.",
+    "treatment": "Apply fungicides at early onset: Mancozeb 75WP (2.5g/L) or Propiconazole 25EC (1ml/L). Apply at 10-14 day intervals.",
+    "prevention": "Plant rust-resistant hybrids. Early planting to avoid peak spore dispersal. Maintain balanced nitrogen fertilization.",
+    "organic_options": "Sulfur-based fungicides (approved organic). Baking soda spray (1 tbsp/gallon). Remove crop debris after harvest."
+  },
+  {
+    "disease": "Corn__gray_leaf_spot",
+    "display_name": "Corn Gray Leaf Spot",
+    "crop": "Corn",
+    "symptoms": "Rectangular, gray-tan lesions running parallel to leaf veins, lesions become gray with distinct parallel edges.",
+    "treatment": "Apply strobilurin-based fungicides (Azoxystrobin 250g/L at 1ml/L) at VT-R1 stage. Rotate with triazoles.",
+    "prevention": "Crop rotation with non-host crops (2-year minimum). Tillage to bury infected residue. Use resistant hybrids.",
+    "organic_options": "Deep tillage to bury residue. Wider row spacing for air circulation. Biological fungicides (Bacillus amyloliquefaciens)."
+  },
+  {
+    "disease": "Corn__healthy",
+    "display_name": "Corn — Healthy",
+    "crop": "Corn",
+    "symptoms": "No disease symptoms detected. Leaves are uniformly green with normal venation pattern.",
+    "treatment": "No treatment necessary. Continue regular crop management.",
+    "prevention": "Maintain balanced fertilization (N-P-K), proper irrigation scheduling, scouting for early disease detection.",
+    "organic_options": "Continue cover cropping, compost applications, and beneficial insect habitat maintenance."
+  },
+  {
+    "disease": "Corn__northern_leaf_blight",
+    "display_name": "Corn Northern Leaf Blight",
+    "crop": "Corn",
+    "symptoms": "Long, elliptical gray-green to tan lesions (1-6 inches), cigar-shaped, starting on lower leaves and moving upward.",
+    "treatment": "Foliar fungicides: Azoxystrobin + Propiconazole at VT stage. Mancozeb 75WP (2.5g/L) as protectant.",
+    "prevention": "Plant resistant hybrids with Ht genes. Crop rotation (minimum 1 year). Tillage to decompose residue.",
+    "organic_options": "Copper-based sprays (approved organic). Crop residue management. Trichoderma-based biocontrol agents."
+  },
+  {
+    "disease": "Potato__early_blight",
+    "display_name": "Potato Early Blight",
+    "crop": "Potato",
+    "symptoms": "Dark brown-black concentric rings (target-board pattern) on older lower leaves, lesions may coalesce, premature leaf drop.",
+    "treatment": "Apply Chlorothalonil 75WP (2g/L) or Mancozeb 75WP (2.5g/L) at first sign. Alternate with systemic fungicides.",
+    "prevention": "Crop rotation (3-year minimum). Adequate fertilization and irrigation. Remove volunteer plants and crop debris.",
+    "organic_options": "Copper hydroxide sprays. Bacillus subtilis biological fungicide. Composted mulch to prevent soil splash."
+  },
+  {
+    "disease": "Potato__healthy",
+    "display_name": "Potato — Healthy",
+    "crop": "Potato",
+    "symptoms": "No disease symptoms detected. Foliage is uniformly green and vigorous.",
+    "treatment": "No treatment necessary. Continue regular crop management.",
+    "prevention": "Use certified seed potatoes. Maintain proper hilling, irrigation, and phosphorus/potassium fertilization.",
+    "organic_options": "Continue organic mulching, compost tea foliar applications, and companion planting with beans or marigold."
+  },
+  {
+    "disease": "Potato__late_blight",
+    "display_name": "Potato Late Blight",
+    "crop": "Potato",
+    "symptoms": "Water-soaked pale green patches on leaf tips/edges turning dark brown-black, white mold growth on leaf undersides in humid conditions.",
+    "treatment": "Immediate application of Metalaxyl + Mancozeb (Ridomil Gold MZ) 2.5g/L. Spray every 5-7 days during outbreak.",
+    "prevention": "Plant certified disease-free seed. Use resistant varieties. Destroy cull piles. Monitor weather for blight-favorable conditions.",
+    "organic_options": "Copper-based fungicides (early, preventive only). Remove and destroy infected foliage. Improve air circulation."
+  },
+  {
+    "disease": "Rice__brown_spot",
+    "display_name": "Rice Brown Spot",
+    "crop": "Rice",
+    "symptoms": "Oval brown spots with gray centers on leaves, dark brown margin, may also appear on glumes causing grain discoloration.",
+    "treatment": "Seed treatment with Carbendazim 50WP (2g/kg seed). Foliar spray of Mancozeb 75WP (2.5g/L) or Propiconazole (1ml/L).",
+    "prevention": "Use resistant varieties. Balanced fertilization (especially potassium and silica). Treat seeds before sowing.",
+    "organic_options": "Pseudomonas fluorescens seed treatment. Trichoderma viride (4g/kg seed). Silica amendments from rice husk ash."
+  },
+  {
+    "disease": "Rice__healthy",
+    "display_name": "Rice — Healthy",
+    "crop": "Rice",
+    "symptoms": "No disease symptoms detected. Leaves are uniformly green with normal tillering pattern.",
+    "treatment": "No treatment necessary. Continue regular paddy management.",
+    "prevention": "Maintain proper water management (alternate wetting/drying). Balanced N-P-K with silica. Regular field scouting.",
+    "organic_options": "Green manure incorporation (Sesbania, Azolla). Organic compost. Neem cake application."
+  },
+  {
+    "disease": "Rice__hispa",
+    "display_name": "Rice Hispa",
+    "crop": "Rice",
+    "symptoms": "White parallel streaks/mines on upper leaf surface caused by larval tunneling, scraping of green tissue, leaves appear whitish.",
+    "treatment": "Spray Chlorpyrifos 20EC (2ml/L) or Quinalphos 25EC (2ml/L) for severe infestations. Clip affected leaf tips.",
+    "prevention": "Avoid excessive nitrogen fertilization. Remove grassy weeds from bunds. Maintain clean field borders.",
+    "organic_options": "Hand-pick adults and egg masses. Neem oil spray (5ml/L). Encourage natural predators (spiders, dragonflies)."
+  },
+  {
+    "disease": "Rice__leaf_blast",
+    "display_name": "Rice Leaf Blast",
+    "crop": "Rice",
+    "symptoms": "Diamond/spindle-shaped gray-center spots with brown borders on leaves, lesions may coalesce causing leaf death.",
+    "treatment": "Spray Tricyclazole 75WP (0.6g/L) or Isoprothiolane 40EC (1.5ml/L). Apply at first symptom appearance.",
+    "prevention": "Use blast-resistant varieties. Avoid excess nitrogen. Split nitrogen applications. Proper water management.",
+    "organic_options": "Pseudomonas fluorescens foliar spray. Silicon-based amendments. Trichoderma harzianum applications."
+  },
+  {
+    "disease": "Rice__neck_blast",
+    "display_name": "Rice Neck Blast",
+    "crop": "Rice",
+    "symptoms": "Grayish-brown lesion at panicle base (neck node), panicle may break and cause whiteheads/chaffy grains, severe yield loss.",
+    "treatment": "Preventive spray of Tricyclazole 75WP (0.6g/L) at booting stage. Carbendazim 50WP (1g/L) at flowering.",
+    "prevention": "Avoid late-season nitrogen. Plant resistant varieties. Timely sowing to escape peak infection period.",
+    "organic_options": "Bacillus subtilis spray at booting/heading. Silica fertilization. Avoid dense planting."
+  },
+  {
+    "disease": "Sugarcane__bacterial_blight",
+    "display_name": "Sugarcane Bacterial Blight",
+    "crop": "Sugarcane",
+    "symptoms": "White to cream-colored stripes along leaf veins, leaves may wilt from tip downward, vascular bundles show red discoloration.",
+    "treatment": "No effective chemical cure. Remove and destroy infected stools. Disinfect cutting tools with 1% sodium hypochlorite.",
+    "prevention": "Use disease-free seed cane from certified nurseries. Hot water treatment (50°C for 2 hours). Resistant varieties.",
+    "organic_options": "Trichoderma-enriched farmyard manure. Crop residue burning. Bio-agents (Pseudomonas fluorescens) in soil."
+  },
+  {
+    "disease": "Sugarcane__healthy",
+    "display_name": "Sugarcane — Healthy",
+    "crop": "Sugarcane",
+    "symptoms": "No disease symptoms detected. Leaves are uniformly green with vigorous growth.",
+    "treatment": "No treatment necessary. Continue regular crop management.",
+    "prevention": "Maintain proper nutrition (N-P-K + micronutrients). Adequate irrigation. Regular earthing-up and detrashing.",
+    "organic_options": "Continue press-mud application, green manuring, and composting of sugarcane trash."
+  },
+  {
+    "disease": "Sugarcane__red_rot",
+    "display_name": "Sugarcane Red Rot",
+    "crop": "Sugarcane",
+    "symptoms": "Yellowing and drying of top leaves (crown region), red discoloration inside the cane stalk with white patches, alcohol smell from split cane.",
+    "treatment": "No effective curative treatment. Uproot and destroy infected clumps. Avoid ratooning of infected fields.",
+    "prevention": "Plant resistant varieties (Co 86032, CoC 671). Hot water treatment of setts (50°C, 2 hrs). Crop rotation.",
+    "organic_options": "Trichoderma viride (4g/kg sett) sett treatment. Pseudomonas fluorescens. Organic amendments to improve soil health."
+  },
+  {
+    "disease": "Sugarcane__red_stripe",
+    "display_name": "Sugarcane Red Stripe",
+    "crop": "Sugarcane",
+    "symptoms": "Narrow dark-red to maroon stripes running parallel to midrib on leaf blade, merging to form larger necrotic areas.",
+    "treatment": "Spray Streptocycline (500ppm) + Copper oxychloride (3g/L). Remove severely infected leaves.",
+    "prevention": "Avoid excess nitrogen. Use resistant varieties. Proper spacing for air circulation. Drain waterlogged fields.",
+    "organic_options": "Copper-based organic sprays. Maintain optimal nutrition with organic manures. Field sanitation."
+  },
+  {
+    "disease": "Sugarcane__rust",
+    "display_name": "Sugarcane Rust",
+    "crop": "Sugarcane",
+    "symptoms": "Elongated orange-brown pustules on lower leaf surface, yellow-orange spore masses, severe infection causes leaf drying.",
+    "treatment": "Foliar spray of Mancozeb 75WP (2.5g/L) or Propiconazole 25EC (1ml/L). Repeat at 15-day intervals.",
+    "prevention": "Plant rust-resistant varieties. Remove and burn heavily infected leaves. Avoid late planting.",
+    "organic_options": "Sulfur-based organic fungicides. Neem oil spray. Remove infected debris from field."
+  },
+  {
+    "disease": "Tomato__bacterial_spot",
+    "display_name": "Tomato Bacterial Spot",
+    "crop": "Tomato",
+    "symptoms": "Small, dark, water-soaked spots on leaves that become angular and scabby. Fruit spots are raised and rough-textured.",
+    "treatment": "Copper hydroxide (2g/L) + Mancozeb (2.5g/L) sprays every 7-10 days. Streptomycin sulfate for severe cases.",
+    "prevention": "Use certified disease-free seed/transplants. Avoid overhead irrigation. Crop rotation (2-3 years).",
+    "organic_options": "Copper-based organic sprays. Bacillus amyloliquefaciens biological control. Proper staking for air circulation."
+  },
+  {
+    "disease": "Tomato__early_blight",
+    "display_name": "Tomato Early Blight",
+    "crop": "Tomato",
+    "symptoms": "Dark brown spots with concentric rings (target-board lesions) on lower/older leaves, yellowing around lesions, premature defoliation.",
+    "treatment": "Chlorothalonil 75WP (2g/L) or Mancozeb 75WP (2.5g/L). Alternate with Azoxystrobin for resistance management.",
+    "prevention": "Stake plants for air movement. Mulch to prevent soil splash. Remove lower infected leaves. Crop rotation.",
+    "organic_options": "Copper sprays. Compost tea. Trichoderma harzianum soil drench. Adequate calcium nutrition."
+  },
+  {
+    "disease": "Tomato__healthy",
+    "display_name": "Tomato — Healthy",
+    "crop": "Tomato",
+    "symptoms": "No disease symptoms detected. Leaves are dark green, compound, with normal serrated edges.",
+    "treatment": "No treatment necessary. Continue regular crop management and monitoring.",
+    "prevention": "Maintain balanced fertilization (Ca, Mg important). Consistent watering schedule. Regular scouting.",
+    "organic_options": "Continue compost applications, mulching, companion planting (basil, marigold), and beneficial insect habitat."
+  },
+  {
+    "disease": "Tomato__late_blight",
+    "display_name": "Tomato Late Blight",
+    "crop": "Tomato",
+    "symptoms": "Large, irregular water-soaked patches on leaves turning dark brown/black. White mold on leaf undersides. Firm brown rot on fruit.",
+    "treatment": "Immediate spray of Metalaxyl + Mancozeb (Ridomil Gold MZ) 2.5g/L. Repeat every 5-7 days in wet weather.",
+    "prevention": "Avoid overhead irrigation. Provide adequate spacing. Use resistant varieties. Destroy crop debris.",
+    "organic_options": "Copper fungicides (preventive only). Remove and destroy infected tissue immediately. Improve drainage."
+  },
+  {
+    "disease": "Tomato__leaf_mold",
+    "display_name": "Tomato Leaf Mold",
+    "crop": "Tomato",
+    "symptoms": "Yellow-green patches on upper leaf surface, olive-green to brown velvety mold on corresponding underside (greenhouse/humid conditions).",
+    "treatment": "Apply Mancozeb 75WP (2.5g/L) or Chlorothalonil (2g/L). Improve greenhouse ventilation.",
+    "prevention": "Increase air circulation (ventilation, proper spacing). Reduce humidity below 85%. Avoid leaf wetness.",
+    "organic_options": "Potassium bicarbonate spray. Bacillus subtilis. Proper pruning for airflow. Drip irrigation only."
+  },
+  {
+    "disease": "Tomato__mosaic_virus",
+    "display_name": "Tomato Mosaic Virus",
+    "crop": "Tomato",
+    "symptoms": "Light and dark green mottling/mosaic on leaves, leaf distortion (fern-leaf), stunted growth, fruit may show internal browning.",
+    "treatment": "No curable treatment once infected. Remove and destroy infected plants. Do not save seed from infected plants.",
+    "prevention": "Use virus-free seed and resistant varieties (Tm-2 gene). Disinfect tools with 10% trisodium phosphate. Wash hands with milk.",
+    "organic_options": "Milk spray (1:9 ratio with water) as preventive. Avoid tobacco use near tomato plants. Control aphid vectors."
+  },
+  {
+    "disease": "Tomato__septoria_leaf_spot",
+    "display_name": "Tomato Septoria Leaf Spot",
+    "crop": "Tomato",
+    "symptoms": "Small circular spots (1-3mm) with dark brown margins and gray-white centers with tiny dark dots (pycnidia), starting on lower leaves.",
+    "treatment": "Mancozeb 75WP (2.5g/L) or Chlorothalonil (2g/L) sprays at 7-10 day intervals. Remove infected lower leaves.",
+    "prevention": "Mulch around base to prevent splash. Stake plants. Crop rotation (minimum 2 years). Avoid overhead watering.",
+    "organic_options": "Copper-based organic fungicides. Neem oil. Remove and compost (hot composting) infected debris."
+  },
+  {
+    "disease": "Tomato__spider_mites_(two_spotted_spider_mite)",
+    "display_name": "Tomato Spider Mites",
+    "crop": "Tomato",
+    "symptoms": "Fine stippling/bronzing on leaf upper surface, fine webbing on undersides, leaves turn yellow-brown and dry up in severe cases.",
+    "treatment": "Spray Abamectin 1.8EC (0.5ml/L) or Spiromesifen 240SC (0.8ml/L). Strong water spray to dislodge mites.",
+    "prevention": "Avoid drought stress (adequate irrigation). Monitor underside of leaves regularly. Avoid excess nitrogen.",
+    "organic_options": "Neem oil spray (5ml/L). Insecticidal soap. Predatory mites (Phytoseiulus persimilis). Strong water spray."
+  },
+  {
+    "disease": "Tomato__target_spot",
+    "display_name": "Tomato Target Spot",
+    "crop": "Tomato",
+    "symptoms": "Brown circular lesions with concentric rings on leaves/stems/fruit, lesions may coalesce causing defoliation.",
+    "treatment": "Chlorothalonil (2g/L) or Azoxystrobin (1ml/L) sprays. Begin at first sign of disease.",
+    "prevention": "Good air circulation. Avoid wetting foliage. Remove lower affected leaves. Crop rotation.",
+    "organic_options": "Copper hydroxide sprays. Bacillus subtilis. Proper pruning and staking. Organic mulch."
+  },
+  {
+    "disease": "Tomato__yellow_leaf_curl_virus",
+    "display_name": "Tomato Yellow Leaf Curl Virus",
+    "crop": "Tomato",
+    "symptoms": "Upward curling and yellowing of leaf margins, stunted internodes, small leaves, reduced fruit set, plant appears bushy.",
+    "treatment": "No curative treatment. Remove and destroy infected plants to reduce virus reservoir. Control whitefly vectors.",
+    "prevention": "Use TYLCV-resistant varieties (Ty-1, Ty-3 genes). Whitefly control with reflective mulches and netting.",
+    "organic_options": "Yellow sticky traps for whitefly. Neem oil. Reflective aluminum mulch. Parasitoid wasps (Eretmocerus)."
+  },
+  {
+    "disease": "Wheat__brown_rust",
+    "display_name": "Wheat Brown Rust (Leaf Rust)",
+    "crop": "Wheat",
+    "symptoms": "Small, round orange-brown pustules scattered randomly on upper leaf surface, rupturing epidermis to release spores.",
+    "treatment": "Propiconazole 25EC (1ml/L) or Tebuconazole 250EC (1ml/L) at first appearance. Repeat after 15 days if needed.",
+    "prevention": "Grow resistant varieties (Lr genes). Timely sowing (avoid late planting). Balanced nitrogen application.",
+    "organic_options": "Sulfur-based fungicides. Remove alternate hosts (Thalictrum species). Crop residue management."
+  },
+  {
+    "disease": "Wheat__healthy",
+    "display_name": "Wheat — Healthy",
+    "crop": "Wheat",
+    "symptoms": "No disease symptoms detected. Leaves are uniformly green with normal tillering and vigor.",
+    "treatment": "No treatment necessary. Continue regular crop management.",
+    "prevention": "Timely sowing, balanced fertilization, proper irrigation scheduling, and regular disease monitoring.",
+    "organic_options": "Continue organic manure applications, green manuring, and maintaining soil biodiversity."
+  },
+  {
+    "disease": "Wheat__septoria",
+    "display_name": "Wheat Septoria Leaf Blotch",
+    "crop": "Wheat",
+    "symptoms": "Irregular tan-brown blotches with dark borders on leaves, tiny black dots (pycnidia) visible within lesions, starting from lower leaves.",
+    "treatment": "Spray Propiconazole 25EC (1ml/L) at GS 32-39. Alternate with Azoxystrobin for resistance management.",
+    "prevention": "Crop rotation. Resistant cultivars. Seedbed hygiene (incorporate residue). Avoid excess nitrogen.",
+    "organic_options": "Copper-based sprays. Deep plowing to bury infected stubble. Biological agents (Trichoderma)."
+  },
+  {
+    "disease": "Wheat__yellow_rust",
+    "display_name": "Wheat Yellow Rust (Stripe Rust)",
+    "crop": "Wheat",
+    "symptoms": "Bright yellow-orange pustules arranged in stripes along leaf veins, giving striped appearance. Severe infection kills leaves.",
+    "treatment": "Immediate spray of Propiconazole 25EC (1ml/L) or Tebuconazole (1ml/L). Two sprays at 15-day intervals.",
+    "prevention": "Plant Yr-gene resistant varieties. Monitor during cool-wet weather. Avoid susceptible late-sown crops.",
+    "organic_options": "Sulfur sprays (early preventive). Remove volunteer/self-sown wheat. Maintain balanced plant nutrition."
+  }
+]
