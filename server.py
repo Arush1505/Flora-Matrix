@@ -16,9 +16,9 @@ app.secret_key = "plantmd_secret_key_premium"
 # Ensure upload directory exists
 # os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
-DB_FILE = "users.sqlite"
-MODEL_PATH = "plant_disease_best.h5"
-REMEDIES_FILE = "remedies.json"
+DB_FILE = "./users.sqlite"
+MODEL_PATH = "./plant_disease_best.h5"
+REMEDIES_FILE = "./remedies.json"
 
 class_names = [
     'Cassava__bacterial_blight', 'Cassava__brown_streak_disease', 'Cassava__green_mottle', 
@@ -173,5 +173,5 @@ def get_remedies_data():
     return jsonify(remedies_data)
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
