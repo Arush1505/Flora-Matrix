@@ -14,7 +14,7 @@ app.secret_key = "plantmd_secret_key_premium"
 # app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
 # Ensure upload directory exists
-os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+# os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 DB_FILE = "users.sqlite"
 MODEL_PATH = "plant_disease_best.h5"
