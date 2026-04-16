@@ -11,7 +11,7 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.secret_key = "plantmd_secret_key_premium"
-app.config['UPLOAD_FOLDER'] = 'static/uploads'
+# app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
 # Ensure upload directory exists
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
@@ -154,14 +154,14 @@ def predict():
         
         remedy_info = next((item for item in remedies_data if item["disease"] == disease_class), None)
 
-        file_url = url_for('static', filename='uploads/' + secure_filename(file.filename))
+        # file_url = url_for('static', filename='uploads/' + secure_filename(file.filename))
 
         return jsonify({
             "success": True,
             "disease_class": disease_class,
             "confidence": round(confidence * 100, 2),
-            "remedy": remedy_info,
-            "image_url": file_url
+            "remedy": remedy_info
+            # "image_url": file_url
         })
     except Exception as e:
         return jsonify({"error": "Prediction failed", "details": str(e)}), 500
