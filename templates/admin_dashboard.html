@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Flora Matrix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --primary: #10b981;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --aws: #ff9900;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: var(--surface);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        .logout-btn {
+            background-color: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .logout-btn:hover {
+            color: var(--text);
+            border-color: var(--text);
+        }
+        .main-content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .metric-card {
+            background-color: var(--surface);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .metric-card h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+        .metric-card .value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        .metric-card.aws {
+            border-left: 4px solid var(--aws);
+        }
+        .charts-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 768px) {
+            .charts-section { grid-template-columns: 1fr; }
+        }
+        .chart-container {
+            background-color: var(--surface);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .data-tables {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        @media (max-width: 1024px) {
+            .data-tables { grid-template-columns: 1fr; }
+        }
+        .table-container {
+            background-color: var(--surface);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+        }
+        .table-container h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        td {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Flora Matrix Admin</h1>
+        <div>
+            <span style="margin-right: 15px; color: var(--text-muted);">Welcome, {{ username }}</span>
+            <a href="#" onclick="logout()" class="logout-btn">Logout</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h3>Total Users</h3>
+                <p class="value">{{ metrics.total_users }}</p>
+            </div>
+            <div class="metric-card">
+                <h3>Images Storage</h3>
+                <p class="value">{{ metrics.total_size_mb }} MB</p>
+            </div>
+            <div class="metric-card aws">
+                <h3>RDS CPU (Avg 1h)</h3>
+                <p class="value" style="color: var(--aws);">{{ aws_metrics.cpu }}</p>
+            </div>
+            <div class="metric-card aws">
+                <h3>S3 Total Objects</h3>
+                <p class="value" style="color: var(--aws);">{{ aws_metrics.s3_objects }}</p>
+            </div>
+        </div>
+
+        <div class="charts-section">
+            <div class="chart-container">
+                <canvas id="processChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="storageChart"></canvas>
+            </div>
+        </div>
+
+        <div class="data-tables">
+            <div class="table-container">
+                <h3>Recent Users</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Registered</th>
+                            <th>Admin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.user_name }}</td>
+                            <td>{{ user.date_of_register }}</td>
+                            <td>{{ 'Yes' if user.is_admin else 'No' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-container">
+                <h3>Recent Images</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>User ID</th>
+                            <th>Size (Bytes)</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for image in images %}
+                        <tr>
+                            <td>{{ image.id }}</td>
+                            <td>{{ image.user_id }}</td>
+                            <td>{{ image.size_of_image }}</td>
+                            <td>{{ 'Success' if image.status == 1 else 'Failed' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="table-container" style="margin-top: 1.5rem;">
+            <h3>Unread User Feedback</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Date</th>
+                        <th>Feedback</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for f in feedbacks %}
+                    <tr id="feedback-row-{{ f.feedback_id }}">
+                        <td>{{ f.feedback_id }}</td>
+                        <td>{{ f.user_name }}</td>
+                        <td>{{ f.date_of_feedback }}</td>
+                        <td class="feedback-text">{{ f.feedback }}</td>
+                        <td>
+                            <input type="checkbox" onchange="markFeedbackRead({{ f.feedback_id }}, this)"> Mark Read
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="5" style="text-align: center; color: var(--text-muted);">No unread feedback.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Charts Configuration
+        Chart.defaults.color = '#94a3b8';
+        Chart.defaults.font.family = "'Inter', sans-serif";
+
+        const ctx1 = document.getElementById('processChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'doughnut',
+            data: {
+                labels: ['Successful Uploads', 'Failed Uploads'],
+                datasets: [{
+                    data: [{{ metrics.success_count }}, {{ metrics.fail_count }}],
+                    backgroundColor: ['#10b981', '#ef4444'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    title: { display: true, text: 'Image Process Success Ratio', color: '#f8fafc', font: {size: 16} }
+                }
+            }
+        });
+
+        const ctx2 = document.getElementById('storageChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Total Users', 'Total Images (Success)'],
+                datasets: [{
+                    label: 'Count',
+                    data: [{{ metrics.total_users }}, {{ metrics.success_count }}],
+                    backgroundColor: '#3b82f6',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: 'Platform Usage', color: '#f8fafc', font: {size: 16} }
+                },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: '#334155' } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        async function logout() {
+            try {
+                await fetch('/logout', { method: 'POST' });
+                window.location.href = '/';
+            } catch (e) {
+                console.error('Logout failed');
+            }
+        }
+
+        async function markFeedbackRead(feedbackId, checkbox) {
+            if (!checkbox.checked) return;
+            
+            checkbox.disabled = true;
+            try {
+                const res = await fetch('/admin/feedback/read', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ feedback_id: feedbackId })
+                });
+                const data = await res.json();
+                
+                if (data.success) {
+                    const row = document.getElementById(`feedback-row-${feedbackId}`);
+                    const textCell = row.querySelector('.feedback-text');
+                    textCell.style.textDecoration = 'line-through';
+                    textCell.style.color = 'var(--text-muted)';
+                    row.style.opacity = '0.6';
+                } else {
+                    alert(data.message || 'Failed to mark read.');
+                    checkbox.checked = false;
+                    checkbox.disabled = false;
+                }
+            } catch (e) {
+                console.error(e);
+                alert('Connection error');
+                checkbox.checked = false;
+                checkbox.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

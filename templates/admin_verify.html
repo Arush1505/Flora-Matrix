@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Admin Access - Flora Matrix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --primary: #10b981;
+            --primary-hover: #059669;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --error: #ef4444;
+            --success: #10b981;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: var(--surface);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        h2 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .code-inputs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+        .code-inputs input {
+            width: 50px;
+            height: 60px;
+            font-size: 1.5rem;
+            text-align: center;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background-color: var(--bg);
+            color: var(--text);
+            font-weight: 600;
+        }
+        .code-inputs input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+        .message {
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            display: none;
+        }
+        .error { color: var(--error); }
+        .success { color: var(--success); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Verify Approval</h2>
+        <p>A 4-digit approval code has been sent to the superadmin email. Enter it below to activate your account.</p>
+        
+        <form id="verifyForm">
+            <div class="code-inputs">
+                <input type="text" maxlength="1" id="c1" autofocus>
+                <input type="text" maxlength="1" id="c2">
+                <input type="text" maxlength="1" id="c3">
+                <input type="text" maxlength="1" id="c4">
+            </div>
+            <button type="submit">Verify & Activate</button>
+            <div id="msg" class="message"></div>
+        </form>
+    </div>
+
+    <script>
+        const inputs = document.querySelectorAll('.code-inputs input');
+        
+        inputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value.length === 1 && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+
+        document.getElementById('verifyForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const msgEl = document.getElementById('msg');
+            const code = Array.from(inputs).map(i => i.value).join('');
+            
+            if (code.length !== 4) {
+                msgEl.textContent = 'Please enter all 4 digits.';
+                msgEl.className = 'message error';
+                msgEl.style.display = 'block';
+                return;
+            }
+
+            try {
+                const res = await fetch('/admin/verify', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code })
+                });
+                const result = await res.json();
+                
+                if (result.success) {
+                    msgEl.textContent = result.message;
+                    msgEl.className = 'message success';
+                    msgEl.style.display = 'block';
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 1500);
+                } else {
+                    msgEl.textContent = result.message;
+                    msgEl.className = 'message error';
+                    msgEl.style.display = 'block';
+                }
+            } catch (err) {
+                msgEl.textContent = 'Network error occurred.';
+                msgEl.className = 'message error';
+                msgEl.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

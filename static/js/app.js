@@ -23,6 +23,29 @@ function toggleAuth(type) {
     }
 }
 
+let currentLoginType = 'user';
+
+function setLoginType(type) {
+    currentLoginType = type;
+    const tabUser = document.getElementById('tab-user');
+    const tabAdmin = document.getElementById('tab-admin');
+    const title = document.getElementById('loginTitle');
+    
+    if (type === 'admin') {
+        tabAdmin.style.backgroundColor = 'var(--accent)';
+        tabAdmin.style.color = 'white';
+        tabUser.style.backgroundColor = 'transparent';
+        tabUser.style.color = 'var(--text)';
+        title.textContent = 'Admin Login';
+    } else {
+        tabUser.style.backgroundColor = 'var(--accent)';
+        tabUser.style.color = 'white';
+        tabAdmin.style.backgroundColor = 'transparent';
+        tabAdmin.style.color = 'var(--text)';
+        title.textContent = 'User Login';
+    }
+}
+
 document.getElementById('signInForm')?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = e.target.querySelector('button');
@@ -31,17 +54,18 @@ document.getElementById('signInForm')?.addEventListener('submit', async (e) => {
 
     const username = document.getElementById('si-username').value;
     const password = document.getElementById('si-password').value;
+    const is_admin = currentLoginType === 'admin';
 
     try {
         const res = await fetch('/signin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password })
+            body: JSON.stringify({ username, password, is_admin })
         });
         const data = await res.json();
         
         if (data.success) {
-            window.location.href = '/dashboard';
+            window.location.href = data.redirect || '/dashboard';
         } else {
             showToast(data.message, true);
         }
@@ -53,6 +77,35 @@ document.getElementById('signInForm')?.addEventListener('submit', async (e) => {
     }
 });
 
+let currentSignupType = 'user';
+
+function setSignupType(type) {
+    currentSignupType = type;
+    const tabUser = document.getElementById('tab-su-user');
+    const tabAdmin = document.getElementById('tab-su-admin');
+    const title = document.getElementById('signupTitle');
+    const emailGroup = document.getElementById('su-email-group');
+    const emailInput = document.getElementById('su-email');
+    
+    if (type === 'admin') {
+        tabAdmin.style.backgroundColor = 'var(--accent)';
+        tabAdmin.style.color = 'white';
+        tabUser.style.backgroundColor = 'transparent';
+        tabUser.style.color = 'var(--text)';
+        title.textContent = 'Admin Signup Request';
+        emailGroup.style.display = 'block';
+        emailInput.required = true;
+    } else {
+        tabUser.style.backgroundColor = 'var(--accent)';
+        tabUser.style.color = 'white';
+        tabAdmin.style.backgroundColor = 'transparent';
+        tabAdmin.style.color = 'var(--text)';
+        title.textContent = 'Create Account';
+        emailGroup.style.display = 'none';
+        emailInput.required = false;
+    }
+}
+
 document.getElementById('signUpForm')?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = e.target.querySelector('button');
@@ -61,19 +114,30 @@ document.getElementById('signUpForm')?.addEventListener('submit', async (e) => {
 
     const username = document.getElementById('su-username').value;
     const password = document.getElementById('su-password').value;
+    const email = document.getElementById('su-email').value;
+
+    const is_admin = currentSignupType === 'admin';
+    const endpoint = is_admin ? '/admin/signup' : '/signup';
+    
+    const bodyData = { username, password };
+    if (is_admin) bodyData.email = email;
 
     try {
-        const res = await fetch('/signup', {
+        const res = await fetch(endpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password })
+            body: JSON.stringify(bodyData)
         });
         const data = await res.json();
         
         if (data.success) {
             showToast(data.message);
-            toggleAuth('signin');
-            document.getElementById('si-username').value = username;
+            if (is_admin) {
+                window.location.href = '/admin/verify';
+            } else {
+                toggleAuth('signin');
+                document.getElementById('si-username').value = username;
+            }
         } else {
             showToast(data.message, true);
         }
@@ -280,4 +344,48 @@ if (searchInput) {
         );
         renderRemedies(filtered);
     });
+}
+
+// --- Feedback Feature ---
+function toggleFeedbackModal() {
+    const modal = document.getElementById('feedbackModal');
+    if (modal.style.display === 'none') {
+        modal.style.display = 'flex';
+    } else {
+        modal.style.display = 'none';
+        document.getElementById('feedbackText').value = '';
+    }
+}
+
+async function submitFeedback() {
+    const text = document.getElementById('feedbackText').value;
+    if (!text || text.trim() === '') {
+        showToast('Feedback cannot be empty.', true);
+        return;
+    }
+
+    const btn = document.getElementById('submitFeedbackBtn');
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+
+    try {
+        const res = await fetch('/api/feedback', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ feedback: text })
+        });
+        const data = await res.json();
+        
+        if (data.success) {
+            showToast(data.message);
+            toggleFeedbackModal();
+        } else {
+            showToast(data.message, true);
+        }
+    } catch (err) {
+        showToast('Connection error', true);
+    } finally {
+        btn.textContent = 'Submit';
+        btn.disabled = false;
+    }
 }
