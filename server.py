@@ -957,4 +957,4 @@ def admin_dashboard():
     return render_template("admin_dashboard.html", username=session["user_name"], metrics=metrics, aws_metrics=aws_metrics, users=users_list, images=images_list, feedbacks=feedback_list)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8000,use_reloader=False)
+    app.run(debug=False,host='0.0.0.0', port=10000,use_reloader=False)
